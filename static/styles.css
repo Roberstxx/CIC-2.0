@@ -1,0 +1,164 @@
+/* Fondo general y tipografía */
+body {
+    background: linear-gradient(135deg, #f7f7f7, #e0e7ff); /* Fondo degradado blanco-azul claro */
+    font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
+    color: #1e3a8a; /* Azul oscuro para el texto */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo del título */
+h1 {
+    color: #1e40af; /* Azul intenso */
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2.5rem;
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: #ffffff; /* Blanco puro */
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    margin: 3rem auto;
+    max-width: 1200px;
+}
+
+/* Estilo del formulario */
+form {
+    background-color: #fef9e7; /* Amarillo claro */
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    border: 2px solid #facc15; /* Borde amarillo */
+}
+
+.form-control {
+    border: 2px solid #93c5fd; /* Azul claro */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    padding: 0.75rem;
+}
+
+.form-control:focus {
+    border-color: #1e40af; /* Azul intenso */
+    box-shadow: 0 0 10px rgba(30, 64, 175, 0.3);
+    outline: none;
+}
+
+/* Botón de agregar */
+.btn-primary {
+    background-color: #1e40af; /* Azul intenso */
+    border-color: #1e40af;
+    border-radius: 8px;
+    padding: 0.30 rem 2.0 rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1e3a8a; /* Azul más oscuro */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+}
+
+/* Estilo de la tabla */
+.table {
+    background-color: #ffffff; /* Blanco */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.5s ease-in;
+}
+
+.table thead {
+    background-color: #facc15; /* Amarillo */
+    color: #1e3a8a; /* Azul oscuro para el texto */
+    font-weight: 600;
+}
+
+.table th, .table td {
+    padding: 1.2rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #e0e7ff; /* Azul claro */
+}
+
+/* Animación de deslizamiento para las filas */
+.table tbody tr {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.5s ease forwards;
+    animation-delay: calc(var(--row-index) * 0.1s); /* Retraso progresivo por fila */
+}
+
+.table tbody tr:nth-child(1) { --row-index: 1; }
+.table tbody tr:nth-child(2) { --row-index: 2; }
+.table tbody tr:nth-child(3) { --row-index: 3; }
+.table tbody tr:nth-child(4) { --row-index: 4; }
+.table tbody tr:nth-child(5) { --row-index: 5; }
+.table tbody tr:nth-child(n+6) { --row-index: 6; } /* Límite para más filas */
+
+/* Efecto hover en filas */
+.table tbody tr:hover {
+    background-color: #e0e7ff; /* Azul claro */
+    transform: scale(1.01);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Botón de eliminar */
+.btn-danger {
+    background-color: #dc2626; /* Rojo para eliminar */
+    border-color: #dc2626;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-danger:hover {
+    background-color: #b91c1c;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(185, 28, 28, 0.4);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+        margin: 1.5rem;
+    }
+
+    .form-control, .btn-primary, .btn-danger {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+
+    .table th, .table td {
+        font-size: 0.85rem;
+        padding: 0.8rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
